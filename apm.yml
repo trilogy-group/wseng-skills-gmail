@@ -1,0 +1,6 @@
+name: wseng-skills-gmail
+version: 1.0.0
+description: WS.Eng Gmail MCP skill — agent context for email operations.
+author: WS.Eng
+dependencies:
+  apm: []
