@@ -3,4 +3,20 @@ version: 1.0.0
 description: WS.Eng Gmail MCP skill — agent context for email operations.
 author: WS.Eng
 dependencies:
-  apm: []
+  apm:
+    - trilogy-group/wseng-skills-toolchain#staging
+
+# Read by the `ws` CLI and merged into the top-level apm.yml at install
+# time (see wseng-skills-toolchain manifest.loadAllMcpServers). APM
+# itself ignores this section.
+env:
+  mcpServers:
+    gmail:
+      transport: proxy
+      command: npx
+      args: ["-y", "@shinzolabs/gmail-mcp"]
+      env:
+        MCP_CONFIG_DIR: ~/.gmail-mcp
+      proxy:
+        name: gmail
+        description: "Gmail email management. Read, compose, send, and manage emails."
